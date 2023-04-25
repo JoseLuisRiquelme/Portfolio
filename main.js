@@ -1,6 +1,13 @@
 import './style.css'
 import * as THREE from 'three';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
+import sunjpg from './textures/sun5.jpg'
+import marsjpg from './textures/mars2.jpg'
+import earthjpg from './textures/earth.jpg'
+import moonjpg from './textures/moon.jpg'
+import spacejpg from './textures/space2.jpg'
+import jljpg from './textures/jl.jpg'
+
 
 
 
@@ -26,10 +33,10 @@ renderer.render(scene,camera);
 //add objects there are three basics steps(1.geometry/2.-material/3.-mesh)
 
 //sun texture
-const sunTexture= new THREE.TextureLoader().load('sun5.jpg'); 
-const marsTexture= new THREE.TextureLoader().load('mars2.jpg');
-const earthTexture= new THREE.TextureLoader().load('earth.jpg');
-const moonTexture= new THREE.TextureLoader().load('moon.jpg');
+const sunTexture= new THREE.TextureLoader().load(sunjpg); 
+const marsTexture= new THREE.TextureLoader().load(marsjpg);
+const earthTexture= new THREE.TextureLoader().load(earthjpg);
+const moonTexture= new THREE.TextureLoader().load(moonjpg);
 
 //1.-geometry(vector define the objets inself)
 const geometry= new THREE.SphereGeometry( 13, 32, 16)
@@ -86,7 +93,7 @@ function addStart(){
 }
 Array(300).fill().forEach(addStart)
 function addPlanet(){
-  const planetTexture= new THREE.TextureLoader().load('space2.jpg')
+  const planetTexture= new THREE.TextureLoader().load(spacejpg )
   const geometry= new THREE.SphereGeometry(5,24,24)
   const material= new THREE.MeshStandardMaterial({map:planetTexture});
   const planet= new THREE.Mesh(geometry,material);
@@ -100,11 +107,11 @@ Array(9).fill().forEach(addPlanet)
 
 
 //space texture
-const textureLoader= new THREE.TextureLoader().load('space2.jpg');
+const textureLoader= new THREE.TextureLoader().load(spacejpg);
 scene.background = textureLoader;
 
 //avatar
-const jlTexture=new THREE.TextureLoader().load('jl.jpg');
+const jlTexture=new THREE.TextureLoader().load(jljpg );
 const jl= new THREE.Mesh(
   new THREE.CircleGeometry( 3,32 ),new THREE.MeshBasicMaterial( {map:jlTexture, side: THREE.DoubleSide} )
 );
